@@ -1,30 +1,21 @@
 # Deploy to Netlify
 
-## 1. Push your code to GitHub
+## Link GitHub to Netlify (connect your repo)
 
-If you haven’t already:
-
-```bash
-git add .
-git commit -m "Add Netlify config"
-git push origin main
-```
-
-## 2. Connect the repo in Netlify
-
-1. Go to [Netlify](https://www.netlify.com/) and sign in.
+1. Open **[Netlify](https://app.netlify.com/)** and sign in (or create an account).
 2. Click **Add new site** → **Import an existing project**.
-3. Choose **GitHub** (or GitLab/Bitbucket) and authorize Netlify.
-4. Select the **artWebsite** repository.
-5. Netlify will detect **Next.js** and use:
+3. Click **Deploy with GitHub** (or **Connect to Git provider** → **GitHub**).
+4. If asked, authorize Netlify to access your GitHub account and allow access to **manohar4** (or the org that has the repo).
+5. In **Pick a repository**, find and select **manohar4/artWebsite** (or **artWebsite**).
+6. Netlify will detect **Next.js** and fill:
    - **Build command:** `npm run build`
-   - **Publish directory:** (set automatically by Next.js)
-6. **Set the site name so your URL is `saivindhya.netlify.app`:**
-   - In the **Site name** field, enter: **`saivindhya`**
-   - Your live URL will be **https://saivindhya.netlify.app**
-7. Click **Deploy site** (or **Configure** first to add env vars).
+   - **Publish directory:** (leave as set by Netlify)
+7. **Site name:** type **`saivindhya`** so your URL is **https://saivindhya.netlify.app**.
+8. Click **Deploy site** (or **Configure** first to add env vars, then deploy).
 
-**If the site is already created:** Go to **Site settings** → **Domain management** → **Netlify subdomain** → **Options** → **Edit site name** → change to **`saivindhya`** → Save. Your URL will be **https://saivindhya.netlify.app**.
+Netlify will clone your repo, run `npm run build`, and deploy. The first deploy may take a few minutes.
+
+**If the site already exists:** **Site settings** → **Domain management** → **Netlify subdomain** → **Options** → **Edit site name** → set to **`saivindhya`** → Save.
 
 ## 3. Add environment variables (required for Airtable)
 

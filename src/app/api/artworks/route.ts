@@ -6,6 +6,9 @@ import {
   searchArtworks,
 } from '@/utils/airtable'
 
+// Required so Next.js doesn't try to statically render this route (uses request.url)
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
