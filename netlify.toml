@@ -1,0 +1,19 @@
+# Netlify build config for Next.js 14
+# https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/
+
+[build]
+  command = "npm run build"
+  # Publish dir is set automatically by Netlify's Next.js support
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Next.js on Netlify uses the Essential Next.js plugin automatically when
+# the framework is detected. No extra config needed for API routes or SSR.
+
+# Add your env vars in Netlify: Site settings → Environment variables
+# Required for Airtable (artworks):
+#   AIRTABLE_BASE_ID
+#   AIRTABLE_PERSONAL_ACCESS_TOKEN  (or AIRTABLE_API_KEY)
+#   AIRTABLE_TABLE_NAME
