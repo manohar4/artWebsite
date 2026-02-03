@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
+import TagsBanner from '@/components/TagsBanner'
 import ArtCollection from '@/components/ArtCollection'
 import Testimonials from '@/components/Testimonials'
 import About from '@/components/About'
@@ -69,15 +70,21 @@ export default function Home() {
           >
             {/* Hero Section */}
             <Logo />
+
+            {/* Diagonal tags banner */}
+            <TagsBanner />
+
+            {/* About Me */}
+            <About />
+
+            {/* Diagonal tags banner - below about */}
+            <TagsBanner />
             
             {/* Recent Work Section */}
             <ArtCollection />
             
             {/* Testimonials Section */}
             <Testimonials />
-            
-            {/* About Section */}
-            <About />
             
             {/* Final CTA Section */}
             <section id="contact" className="py-20 px-6 md:px-12 lg:px-20 relative">

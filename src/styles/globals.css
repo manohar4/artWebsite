@@ -114,6 +114,19 @@
   .kawaii-button-outline {
     @apply kawaii-button bg-transparent border-2 border-gray-300 text-gray-800 hover:border-gray-400;
   }
+
+  /* Tags banner marquee */
+  @keyframes tags-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+  .animate-tags-marquee {
+    animation: tags-marquee 28s linear infinite;
+  }
 }
 
 @layer utilities {

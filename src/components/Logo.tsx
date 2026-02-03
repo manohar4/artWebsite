@@ -3,12 +3,10 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
 import { useRef } from 'react'
 import { Play } from 'lucide-react'
 import { VerticalCutReveal } from '@/components/ui/vertical-cut-reveal'
 import SignatureLogo from '@/components/SignatureLogo'
-import heroImage from '@/assets/saiVindya.jpg'
 
 const Logo = () => {
   const pathname = usePathname()
@@ -50,14 +48,13 @@ const Logo = () => {
         </nav>
       </header>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-20 lg:py-0 gap-12 lg:gap-16 relative z-10">
-        {/* Left Side - Text Content */}
+      {/* Main Content - centered */}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-20 lg:py-0 relative z-10">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex-1 flex flex-col justify-center max-w-2xl"
+          className="flex flex-col items-center justify-center max-w-2xl text-center"
         >
           <div className="space-y-2 mb-8">
             <VerticalCutReveal
@@ -65,7 +62,7 @@ const Logo = () => {
               staggerDuration={0.025}
               staggerFrom="first"
               transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-              containerClassName="flex flex-wrap text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg"
+              containerClassName="flex flex-wrap justify-center text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg"
               elementLevelClassName="inline-block"
               wordLevelClassName="mr-2"
             >
@@ -78,7 +75,7 @@ const Logo = () => {
               staggerFrom="center"
               reverse={false}
               transition={{ type: 'spring', stiffness: 220, damping: 24, delay: 0.25 }}
-              containerClassName="flex flex-wrap text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg"
+              containerClassName="flex flex-wrap justify-center text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg"
               elementLevelClassName="inline-block"
               wordLevelClassName="mr-2"
             >
@@ -96,38 +93,8 @@ const Logo = () => {
               <span>View My Work</span>
             </Link>
           </div>
-      </motion.div>
-
-        {/* Right Side - Hero Image/Illustration */}
-      <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex-1 flex items-center justify-center max-w-lg w-full"
-        >
-          <div className="relative w-full aspect-square max-w-md">
-            {/* Decorative background circle */}
-            <div className="absolute inset-0 bg-[#FFE5CC] rounded-full blur-3xl opacity-50 -z-10" />
-            
-            {/* Image Container */}
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src={heroImage}
-                alt="Sai Vindhya - Creative Artist"
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              
-              {/* Decorative overlay */}
-              <div className="absolute top-4 right-4 w-16 h-16 bg-red-400/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <span className="text-2xl">❤️</span>
-              </div>
-          </div>
-          </div>
         </motion.div>
-        </div>
+      </div>
     </section>
   )
 }

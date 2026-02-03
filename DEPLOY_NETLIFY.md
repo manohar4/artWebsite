@@ -1,5 +1,23 @@
 # Deploy to Netlify
 
+## ⚠️ "AIRTABLE_BASE_ID is not set" on Netlify?
+
+Your `.env.local` file is **not** deployed (it’s in `.gitignore`). You must set the same variables **in Netlify**:
+
+1. In Netlify: open your site → **Site configuration** (or **Site settings**) → **Environment variables**.
+2. Click **Add a variable** → **Add single variable** (or **Import from .env** to paste from `.env.local`).
+3. Add these (use the same values as in your `.env.local`):
+
+| Variable | Example / description |
+|----------|------------------------|
+| `AIRTABLE_BASE_ID` | `appgWZ40m0scdGJxW` |
+| `AIRTABLE_PERSONAL_ACCESS_TOKEN` | Your Airtable Personal Access Token |
+| `AIRTABLE_TABLE_NAME` | `ArtDatabase` (or your table name) |
+
+4. Save, then go to **Deploys** → **Trigger deploy** → **Deploy site** so the new variables are used.
+
+---
+
 ## Link GitHub to Netlify (connect your repo)
 
 1. Open **[Netlify](https://app.netlify.com/)** and sign in (or create an account).
@@ -19,9 +37,9 @@ Netlify will clone your repo, run `npm run build`, and deploy. The first deploy 
 
 ## 3. Add environment variables (required for Airtable)
 
-Before or after the first deploy:
+**Important:** `.env.local` is only used on your machine. Netlify does not see it. You must add these in the Netlify UI.
 
-1. In Netlify: **Site settings** → **Environment variables** → **Add a variable** (or **Import from .env**).
+1. In Netlify: **Site configuration** (or **Site settings**) → **Environment variables** → **Add a variable** (or **Import from .env** to paste from `.env.local`).
 2. Add:
 
 | Key | Value |
@@ -30,7 +48,7 @@ Before or after the first deploy:
 | `AIRTABLE_PERSONAL_ACCESS_TOKEN` | Your Airtable Personal Access Token |
 | `AIRTABLE_TABLE_NAME` | Your table name (e.g. `ArtDatabase`) |
 
-3. **Save** and trigger a **new deploy** (Deploys → Trigger deploy → Deploy site) so the new env vars are used.
+3. **Save**, then go to **Deploys** → **Trigger deploy** → **Deploy site** so the new env vars are used in the next build.
 
 ## 4. Optional: custom domain
 
